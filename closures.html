@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Basic Closures</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <script>
+        
+            const createAdd = (x) => {
+                return (y) => x + y;
+            }
+
+            const add = createAdd(10);
+            // console.log(add(5));
+            // console.log(add(10));
+
+
+            function kali(x){
+                return function(y){
+                   return function(jml){
+                       let a = (x * y) * 5;
+                        return function(b){
+                            return a / b;
+                        }
+
+                   }
+                }
+            }
+
+            const kal    = kali(10);
+            const jumlah = kal(10);
+            const bagi   = jumlah(5);
+            console.log(bagi(5));
+
+        </script>
+    </body>
+</html>
