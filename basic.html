@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Basic</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <script>
+
+            //spread operator
+            const myArray = (...element) => {
+                return element;
+            }
+
+            console.log(myArray([1,2,3]));
+
+            const log = (...args) => {
+                console.log(...args);
+            }
+
+            log("nama saya:", "muhamad rahmat setiawan");
+
+            //filter value
+            const head = ([x]) => x;
+            console.log(head([1,2,3]) === 1 );
+
+            //default parameter
+            const greet = (name, greeting = "hello") => {
+                console.log(greeting, name);
+            }
+
+            greet('muhamad rahmat setiawan', 'hi');
+            greet('nurviza indah, semangat terus yaaw');
+
+
+            //imperative
+            const kali = (num) => {
+                let double = [];
+                let len = num.length;
+                
+                for(let i = 0 ; i < len; i++){
+                    double.push(num[i] * 2)
+                }
+
+                return double;
+            }
+
+            console.log(kali([1,2,3]));
+
+            //declarative
+            const dec = (num) => {
+                return num.map(n => n * 2)
+            }
+
+            console.log(dec([2,3,4]));
+
+        </script>
+    </body>
+</html>

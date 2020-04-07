@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Basic Immutable</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/immutable/3.8.2/immutable.min.js"></script>
+        <script>
+            "use strict"
+            //contoh mutable atau merubah state
+            let hobbies = ["programming","football","music"];
+            let spc = hobbies.splice(0,2);
+            console.log(spc);
+            console.log(hobbies);
+
+            //jika sebuah object di freeze maka object tersebut tidak bisa dirubah
+            let myName = Object.freeze( ["muhamad","rahmat","setiawan"]);
+            let getMyName = myName.splice(0,2);
+            console.log(myName);
+            // console.log(getMyName);
+            
+            //contoh immutable munggunakan library immutable.js tidak merubah state awal meskipun kita rubah value dari middle
+            let map1 = Immutable.Map({first: "muhamad", middle: "rahmat", last: "setiawan"})
+            let map2 = map1.set('middle', 'mattrach');
+            console.log(map1.get('middle'));
+            console.log(map2.get('middle'));
+        </script>
+    </body>
+</html>

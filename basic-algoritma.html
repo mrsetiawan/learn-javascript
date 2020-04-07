@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Basic Algorithm</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+    <script>
+        
+        function reverseString(str){
+
+            const a = str.split('').reverse().join('');
+            return a
+
+        }
+        
+        console.log(reverseString("hello world"));
+
+        function factorial(num){
+            //iterative version
+            if(num < 0) return;
+            for (var produk = 1; num > 0; num--) produk *= num;
+            return produk
+
+        }
+
+        console.log(factorial(20));
+
+        //menggunakan for
+        function findLongestWordLength(str){
+            var words = str.split(' ');
+            var maxLength = 0;
+
+            for(var i=0; i<words.length; i++){
+                if(words[i].length > maxLength){
+                    maxLength = words[i].length;
+                }
+            }
+
+            return maxLength;
+
+        }
+
+        console.log(findLongestWordLength("The quick brown fox jumped over the lazy dog"));
+
+
+        // menggunakan map dan Math.max
+        function cariKataTerpanjang(str){
+
+            var pan = Math.max(...str.split(' ').map(kata => kata.length));
+            // console.log(pan);
+            return pan;
+        }
+
+        cariKataTerpanjang("muhamad rahmat setiawan")
+
+        function largestOfFour(arr) {
+           
+            var newArr = [];
+            
+                for(var i = 0; i < arr.length; i++){
+                    newArr[i] = Math.max.apply(null, arr[i]);
+                }
+            
+            return newArr;
+        }
+
+        largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]);
+
+
+        function coba(){
+            var myArray = [123,939,92,123,543,65464];
+
+            var newArr = [];
+
+            newArr.push(Math.max.apply(undefined, myArray));
+
+            return newArr;
+
+        }
+
+        console.log(coba());
+
+
+        function findValue() {
+            
+            var arr = [[432,456,23],[879,12,678,10],[1,5,8,4]];
+            var tamArr = [];
+
+            for(var i=0; i < arr.length; i++){
+                tamArr[i] = Math.max.apply(null, arr[i])
+            }
+
+            return tamArr;
+
+        }
+
+        findValue();
+
+        //menggunakan sort
+        function withSort(arr){
+            var tam = [];
+
+            for(var i=0; i<arr.length; i++){
+                var largeNumber = arr[i][0];
+                console.log(arr);
+            }
+        }
+
+        withSort([[23,45,65,23],[34,67,48,95],[983,34,54,678],[93,75,34,768,23],[657,678,345,75685,234,675]]);
+
+    </script>
+    </body>
+</html>
