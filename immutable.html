@@ -8,7 +8,7 @@
     <body>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/immutable/3.8.2/immutable.min.js"></script>
         <script>
-            "use strict"
+            'use strict'
             //contoh mutable atau merubah state
             let hobbies = ["programming","football","music"];
             let spc = hobbies.splice(0,2);
@@ -16,10 +16,20 @@
             console.log(hobbies);
 
             //jika sebuah object di freeze maka object tersebut tidak bisa dirubah
-            let myName = Object.freeze( ["muhamad","rahmat","setiawan"]);
-            let getMyName = myName.splice(0,2);
-            console.log(myName);
+            // let myName = Object.freeze( ["muhamad","rahmat","setiawan"]);
+            // let getMyName = myName.splice(0,2);
+            // console.log(myName);
             // console.log(getMyName);
+
+            const createPoint = (x,y) => Object.freeze([x,y]);
+            const movePointBy = ([x,y], dx,dy) => {
+                return Object.freeze([x + dx, y + dy])
+            }
+
+            let point = createPoint(0,0);
+            point = movePointBy(point, 5,5);
+            point = movePointBy(point, 12, 15);
+            console.log(point);
             
             //contoh immutable munggunakan library immutable.js tidak merubah state awal meskipun kita rubah value dari middle
             let map1 = Immutable.Map({first: "muhamad", middle: "rahmat", last: "setiawan"})

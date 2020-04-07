@@ -8,6 +8,54 @@
     <body>
     <script>
         
+        //fibonacci
+        first = 0;
+        last = 1;
+        jumlah = last;
+
+        for(var i = 0; i<10; i++){
+            jumlah = first + last;
+            first=last;
+            last=jumlah;
+            
+        }
+           
+        console.log(jumlah);
+
+        //palindrome dengan buildin function
+        function palindrome(str){
+            const re = /\W|_/g;
+            const low = str.toLowerCase().replace(re, '');
+            const rev = low.split('').reverse().join('');
+            if(low === rev) {
+                console.log("ini palindrome");
+            }else{
+                console.log("ini bukan palindrome")
+            }
+        }
+
+        // palindrome("Ter , biasa, 'asaib@*', ret");
+
+        //palindrom dengan for
+        function palind(str){
+            const re = /[\W_]/g;
+            const tolow = str.toLowerCase().replace(re, '');
+
+            var len = tolow.length;
+            
+            for(var i=0; i<len/2; i++){
+                if(str[i] === str[len - 1 - i]){
+                    return false;
+                }
+            }
+
+            return true;
+            // console.log("ini palindrom")
+        }
+
+        palind("tahat")
+
+
         function reverseString(str){
 
             const a = str.split('').reverse().join('');
