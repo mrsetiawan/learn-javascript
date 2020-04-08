@@ -13,7 +13,7 @@
             }
 
             const add = createAdd(10);
-            // console.log(add(5));
+            console.log(add(5));
             // console.log(add(10));
 
 
@@ -24,7 +24,6 @@
                         return function(b){
                             return a / b;
                         }
-
                    }
                 }
             }
@@ -33,6 +32,95 @@
             const jumlah = kal(10);
             const bagi   = jumlah(5);
             console.log(bagi(5));
+
+            const createRequester = (option) => {
+                return (optionValue) => {
+                    return (Object.assign(
+                        {},option,optionValue
+                    ))
+                }
+
+            }
+
+            const customRequest = createRequester({
+                headers: {'x-custom' : 'key'}
+            })
+
+            const userPromise = customRequest({
+                url : '/users'
+            })
+
+            const takePromise = customRequest({
+                url : '/tasks'
+            })
+
+            console.log(takePromise);
+
+            const tambah = (x,y) => x + y;
+
+            const partial = (fn,...args) => {
+                return (...othersArgs) => {
+                    return fn(...args, ...othersArgs)
+                }
+            }
+
+            const tambahLagi = partial(tambah, 10)
+
+            console.log(tambahLagi(90));
+
+
+            const first = (a) => {
+
+                let firstName = "muhamad"
+
+                const middle = () => {
+
+                    let middleName = "rahmat"
+
+                    const last = () => {
+
+                        let lastName = "setiawan"
+
+                        return `${firstName} ${middleName} ${lastName} ${a}`
+                    }
+
+                    return last();
+                }
+
+                return middle();
+            }
+
+            const myName = first("ini tes");
+            console.log(myName);
+
+
+            const penjumlahan = (a,b) => {
+                
+                let c = a + b;
+
+                const pengurangan = () => {
+
+                    let e = c - 10;
+
+                    const pembagian = () =>{
+
+                        let f = e / 2;
+                        
+                        return `jumlah akhir ${f}`;   
+                    }
+
+                    return pembagian();
+
+                }
+
+                return pengurangan(10)
+            }
+
+
+            const aritmatika = penjumlahan(10,40);
+            console.log(aritmatika);
+
+
 
         </script>
     </body>
