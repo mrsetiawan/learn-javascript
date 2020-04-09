@@ -1,92 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Closures Example</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- <link href="css/style.css" rel="stylesheet"> -->
 
-        <style>
+<head>
+    <title>Closures Example</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link href="css/style.css" rel="stylesheet"> -->
 
-            body{
-                padding: 0;
-                margin: 0;
-                color:black;
-                text-align: center;
-                overflow-x: hidden;
-                font-family: 'Courier New', Courier, monospace;
-                font-size: 14px;
-            }
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            color: black;
+            text-align: center;
+            overflow-x: hidden;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+        }
 
-            .container {
-                display: flex;
-                justify-content: flex-start;
-                flex-direction: row;
-            }
+        .container {
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: row;
+        }
 
-            .container div {
-                padding: 10px;
-                box-sizing: border-box;
-                /* border: 1px solid black; */
-            }
+        .container div {
+            padding: 10px;
+            box-sizing: border-box;
+            /* border: 1px solid black; */
+        }
 
-            .box {
-                flex-basis: 100%;
-            }
+        .box {
+            flex-basis: 100%;
+        }
 
-            .box2 {
-                flex: 100%;
-            }
+        .box2 {
+            flex: 100%;
+        }
 
-            .nav {
-                height: 65px;
-                overflow: hidden;
-            }
-            .nav li {
-                list-style: none;
-            }
+        .nav {
+            height: 65px;
+            overflow: hidden;
+        }
 
-            .text-target {
-                font-size: 14px;
-            }
-        
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="box" id="box">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae voluptate molestias vero ducimus obcaecati amet officiis aspernatur provident cupiditate ipsum?
-            </div>
+        .nav li {
+            list-style: none;
+        }
+
+        .text-target {
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box" id="box">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae voluptate molestias vero ducimus obcaecati
+            amet officiis aspernatur provident cupiditate ipsum?
         </div>
+    </div>
 
-        <div class="box2">
-            <ul class="nav">
-                <li id="font15">Font size 15px</li>
-                <li id="font16">Font size 16px</li>
-                <li id="font17">Font size 17px</li>
-            </ul>
-        </div>
+    <div class="box2">
+        <ul class="nav">
+            <li id="font15">Font size 15px</li>
+            <li id="font16">Font size 16px</li>
+            <li id="font17">Font size 17px</li>
+        </ul>
+    </div>
 
 
-        <script>
+    <script>
 
-            const changeStyle = (size,color) => {
-                return () => {
-                    document.getElementById('box').style.fontSize = `${size}px`;
-                    document.getElementById('box').style.color = `${color}`;
+        const changeStyle = (size, color) => {
+            return () => {
+                document.getElementById('box').style.fontSize = `${size}px`;
+                document.getElementById('box').style.color = `${color}`;
+            }
+        }
+
+        let font15 = changeStyle(15, 'red');
+        let font16 = changeStyle(16, 'blue');
+        let font17 = changeStyle(17, 'yellow');
+
+        document.getElementById('font15').onclick = font15;
+        document.getElementById('font16').onclick = font16;
+        document.getElementById('font17').onclick = font17;
+
+
+        const makeCounter = () => {
+
+            let privateCounter = 0;
+
+            const change = (val) => {
+                return privateCounter += val;
+            }
+
+            return {
+
+                increment: function(){
+                    return change(1);
+                },
+                decrement: function(){
+                    return change(-1);
+                },
+                defaultValue: function(){
+                    return privateCounter
                 }
             }
 
-            let font15 = changeStyle(15 ,'red');
-            let font16 = changeStyle(16, 'blue');
-            let font17 = changeStyle(17, 'yellow');
 
-            document.getElementById('font15').onclick=font15;
-            document.getElementById('font16').onclick=font16;
-            document.getElementById('font17').onclick=font17;
+        }
 
 
-        
-        </script>
-    </body>
+        const counter1 = makeCounter();
+        const counter2 = makeCounter();
+
+        alert(counter1.defaultValue());
+        counter1.increment();
+        alert(counter1.defaultValue());
+        counter1.increment();
+        alert(counter1.defaultValue());
+        counter1.decrement();
+        alert(counter1.defaultValue());
+        counter2.defaultValue();
+        alert(counter2.defaultValue());
+        // 0 1 2 1 0
+    </script>
+</body>
+
 </html>
