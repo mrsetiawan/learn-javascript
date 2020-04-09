@@ -121,13 +121,17 @@
             console.log(aritmatika);
 
 
-            const makeAdd = (x) => {
+           const makeNumber = (x) => {
                 return (y) => x + y;
-            }
+           }
 
-            const addNumber = makeAdd(500);
-            const addNumberNew = makeAdd(100);
-            console.log(addNumberNew(500));
+           const addNumber = makeNumber(10);
+           console.log(addNumber(20));
+           const addNumberNew = makeNumber(20);
+           console.log(addNumberNew(30));
+           const noNew = makeNumber(90);
+           console.log(noNew(90));
+           
 
         </script>
     </body>
