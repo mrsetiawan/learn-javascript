@@ -16,6 +16,7 @@
             overflow-x: hidden;
             font-family: 'Courier New', Courier, monospace;
             font-size: 14px;
+            transition: .5s ease-in;
         }
 
         .container {
@@ -50,14 +51,19 @@
         .text-target {
             font-size: 14px;
         }
+
+        .classNew {
+            color: royalblue;
+        }
+
     </style>
 </head>
 
 <body>
     <div class="container">
         <div class="box" id="box">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae voluptate molestias vero ducimus obcaecati
-            amet officiis aspernatur provident cupiditate ipsum?
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae voluptate molestias vero ducimus obcaecati
+            amet officiis aspernatur provident cupiditate ipsum?</p>
         </div>
     </div>
 
@@ -72,16 +78,17 @@
 
     <script>
 
-        const changeStyle = (size, color) => {
+        const changeStyle = (size) => {
             return () => {
                 document.getElementById('box').style.fontSize = `${size}px`;
-                document.getElementById('box').style.color = `${color}`;
+                let element = document.getElementById('box');
+                element.classList.add('classNew');
             }
         }
 
-        let font15 = changeStyle(15, 'red');
-        let font16 = changeStyle(16, 'blue');
-        let font17 = changeStyle(17, 'yellow');
+        let font15 = changeStyle(15);
+        let font16 = changeStyle(16);
+        let font17 = changeStyle(17);
 
         document.getElementById('font15').onclick = font15;
         document.getElementById('font16').onclick = font16;
@@ -93,7 +100,7 @@
             let privateCounter = 0;
 
             const change = (val) => {
-                return privateCounter += val;
+                return privateCounter += val ;
             }
 
             return {
@@ -115,6 +122,8 @@
 
         const counter1 = makeCounter();
         const counter2 = makeCounter();
+
+        console.log(counter1.defaultValue());
 
         alert(counter1.defaultValue());
         counter1.increment();
