@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Event</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <img src="assets/mozilla.png" alt="mozilla">
+
+        <!-- <img src="assets/chrome.png" alt=""> -->
+        <script>
+
+            const myImg = document.querySelector('img');
+
+            myImg.onclick = function(){
+
+                let mySrc = myImg.getAttribute('src');
+
+                if(mySrc === 'assets/mozilla.png'){
+                    myImg.setAttribute('src' ,'assets/chrome.png');
+                }else{
+                    myImg.setAttribute('src', 'assets/mozilla.png');
+                }
+            }
+        
+        </script>
+    </body>
+</html>

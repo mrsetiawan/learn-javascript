@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Inheritance pada javascript </title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        
+        <script>
+        
+        //inheritance via __proto__ //tidak direkomendasikan
+        let obj = {
+            name:'muhamad rahmat setiawan',
+            umur:27
+        }
+
+        let objNew = {};
+
+        objNew.__proto__ = obj;
+
+        console.log(objNew.name);
+        console.log(objNew.umur);
+
+        //inheritance via object create
+        let kali = {
+           a: 5,
+           kalikan: function(b){
+               return this.a * b;
+           }
+        }
+
+       let kaliAssign = Object.create(kali);
+
+       console.log(kaliAssign.a);
+       console.log(kaliAssign.kalikan(20));
+
+        //misal kita rubah value di parent maka children otomatis berubah 
+        //jika kita rubah value di chidren maka value di parent tidak berubah
+
+       let parent = {
+           rambut: 'hitam',
+           mata: 'coklat'
+       }
+
+       let children = Object.create(parent);
+
+       parent.rambut = 'putih';
+
+       console.log(`parent rambutnya warna : ${parent.rambut}`);
+       console.log(`children rambutnya warna: ${children.rambut}`);
+
+       children.mata = 'biru';
+
+       console.log(`parent matanya warna : ${parent.mata}`);
+       console.log(`children matanya warna: ${children.mata}`);
+
+       //inheritance via constructor
+       function Car(){
+           this.ban = 'corsa';
+           this.velg = 'volk rays';
+       }
+
+       Car.prototype.merk = 'honda jazz';
+       Car.prototype.warna = 'Hitam';
+       Car.prototype.mobil = function(){
+           return `mobil saya ${this.merk} merk ban ${this.ban} warna nya ${this.warna}`;
+       }
+
+       let myCar = new Car();
+
+       console.log(myCar.mobil());
+
+
+        </script>
+    </body>
+</html>
