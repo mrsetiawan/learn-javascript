@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Inheritance example</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <script>
+            //inheritance via proto
+            let kantor = {
+                lantaiA : 'office boy',
+                lantaiB : 'ruang meeting',
+                lantaiC : 'ruang programmer',
+                kantorku: function(){
+                    return `kantor saya ada di ${this.lantaiC}`
+                }
+            } 
+
+            //jika value dari kantor di ganti maka value dari kantorProto akan berubah,dan jika value dari kantorProto dirubah maka value dari kantor tidak berubah
+            kantor.lantaiA = 'ruang office boy';
+
+            let kantorProto = {};
+            kantorProto.__proto__ = kantor;
+            kantorProto.lantaiA = 'office boy rubah';
+
+            console.log(kantorProto.lantaiA); 
+            console.log(kantor.lantaiA); 
+
+
+            //inheritance via object create
+            let motor = {
+                merk: 'honda',
+                warna: 'biru',
+                kendaraan: function() {
+                    return `motor saya adalah ${this.merk} berwarna ${this.warna}`;
+                }
+            }         
+
+            let motorCreate = Object.create(motor);
+            motorCreate.merk = 'yamaha';
+
+            console.log(motorCreate.merk);
+            console.log(motor.merk);
+
+            //inheritance via constructor
+            function Manusia() {
+                this.nama = 'rahmat',
+                this.rambut = 'hitam',
+                this.mata = 'coklat',
+                this.alis = 'tebal',
+                this.orang = function(){
+                    return `saya adalah ${this.nama} yang berambut ${this.rambut} dan bermata ${this.mata} yang beralis ${this.alis}`;
+                } 
+            }
+
+            //menambahkan properti dan value di function Manusia dengan prototype
+            Manusia.prototype.job = 'web developer';
+            Manusia.prototype.bio = function(){
+                return `nama saya adalah ${this.nama} dan pekerjaan saya saat ini adalah seorang ${this.job}`;
+            }
+
+            let rahmat = new Manusia();
+            console.log(rahmat.bio());
+        </script>
+    </body>
+</html>

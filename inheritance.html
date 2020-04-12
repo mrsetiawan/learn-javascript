@@ -35,8 +35,8 @@
        console.log(kaliAssign.a);
        console.log(kaliAssign.kalikan(20));
 
-        //misal kita rubah value di parent maka children otomatis berubah 
-        //jika kita rubah value di chidren maka value di parent tidak berubah
+        //misal kita rubah value di parent maka value children otomatis berubah 
+        //jika kita rubah value di children maka value di parent tidak berubah
 
        let parent = {
            rambut: 'hitam',
@@ -63,6 +63,7 @@
 
        Car.prototype.merk = 'honda jazz';
        Car.prototype.warna = 'Hitam';
+       Car.prototype.ban = 'corsa update';
        Car.prototype.mobil = function(){
            return `mobil saya ${this.merk} merk ban ${this.ban} warna nya ${this.warna}`;
        }
@@ -70,7 +71,6 @@
        let myCar = new Car();
 
        console.log(myCar.mobil());
-
 
         </script>
     </body>
