@@ -32,9 +32,7 @@ class Biografi extends Component {
         this.lastName(hasil3 => {
           let last = hasil3;
           const myName = `${first} ${middle} ${last}`;
-          this.setState({
-            name: myName
-          });
+          this.setState({ name: myName });
         });
       });
     });
