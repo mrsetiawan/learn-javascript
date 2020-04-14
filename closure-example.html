@@ -116,7 +116,6 @@
                 }
             }
 
-
         }
 
 
@@ -135,6 +134,23 @@
         counter2.defaultValue();
         alert(counter2.defaultValue());
         // 0 1 2 1 0
+
+        //membuat object dengan closure
+        const mobil = (merk,warna) => {
+
+            let jenis = merk;
+            let warrna = warna;
+
+            const kendaraaan = () => {
+                return `ini adalah mobil saya mereknya ${jenis} yang berwarna ${warna}`
+            }
+
+            return kendaraaan();
+        }
+
+        const mobilSaya = mobil('honda jazz', 'putih');
+        console.log(mobilSaya);
+
     </script>
 </body>
 
