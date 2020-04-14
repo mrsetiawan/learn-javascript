@@ -42,18 +42,19 @@ class ExamplePromiseAll extends Component {
 
   callFamily = () => {
     //promise biasa / asyncronous
-    this.callAyah().then(ayah => {
-      return this.setState({ ayah: ayah });
-    });
-    this.callIbu().then(ibu => {
-      return this.setState({ ibu: ibu });
-    });
-    this.callSaya().then(saya => {
-      return this.setState({ saya: saya });
-    });
-    this.callKeluarga().then(keluarga => {
-      return this.setState({ keluarga: keluarga });
-    });
+    // this.callAyah().then(ayah => {
+    //   return this.setState({ ayah: ayah });
+    // });
+    // this.callIbu().then(ibu => {
+    //   return this.setState({ ibu: ibu });
+    // });
+    // this.callSaya().then(saya => {
+    //   return this.setState({ saya: saya });
+    // });
+    // this.callKeluarga().then(keluarga => {
+    //   return this.setState({ keluarga: keluarga });
+    // });
+    
     //promise all cuma ini harus menunggu semua resolve dulu,jadi seperti syncrhronous
     Promise.all([
       this.callAyah(),
