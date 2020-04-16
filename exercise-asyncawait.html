@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <h1 onclick="getMyCar();">Get my car</h1>
+        <script>
+
+            function MyCar() {
+                this.ban ='corsa';
+                this.velg ='volk swag';
+                this.tahun = 2020;
+            }
+            
+            MyCar.prototype.warna = 'putih';
+            MyCar.prototype.merk = 'Honda CRV';
+            MyCar.prototype.harga = 20000000;
+            MyCar.prototype.seat = 6;
+
+            const carInstance = new MyCar();
+
+            myNewCar = () => {
+                let merk = `${carInstance.merk}`;
+                let warna = `${carInstance.warna}`;
+                let tahun = `${carInstance.tahun}`;
+                let harga = `${carInstance.harga}`;
+                const mobilKu = {merk,warna,tahun,harga};
+
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        resolve(mobilKu)
+                    },800)
+                })
+            }
+
+            getMyCar = async () => {
+               
+                let mobil = await myNewCar();
+                let el1 = document.createElement('p');
+                let el2 = document.createElement('p');
+                let el3 = document.createElement('p');
+                let el4 = document.createElement('p');
+
+                el1.innerHTML = `merk: ${mobil.merk}`;
+                el2.innerHTML = `warna: ${mobil.warna}`;
+                el3.innerHTML = `tahun: ${mobil.tahun}`;
+                el4.innerHTML = `harga: ${mobil.harga}`;
+
+                return document.body.appendChild([el1,el2,el3,el4]); 
+            }
+            
+
+        </script>
+    </body>
+</html>

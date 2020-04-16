@@ -1,0 +1,21 @@
+{
+  "name": "learn-javascript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "ExamplePromiseAll.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint .",
+    "lint-fix": "eslint . --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrsetiawan/learn-javascript.git"
+  },
+  "author": "muhamad rahmat setiawan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mrsetiawan/learn-javascript/issues"
+  },
+  "homepage": "https://github.com/mrsetiawan/learn-javascript#readme"
+}

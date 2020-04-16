@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+            <h1 id="heading">Change my fullname</h1>
+            <p id="first">Firstname is.. </p>
+            <!-- <p id="middle">Middlename is.. </p>
+            <p id="last">Lastname is.. </p>
+            <p id="fullname">My fullName is.. </p> -->
+        <script>
+            
+            var myName = "muhamad";
+
+            getNameFunction = () => {
+                return setTimeout(() => {
+                    return "aaa";
+                },300)
+            }
+
+            const getName = getNameFunction();
+            const first = document.getElementById('heading').onclick = getName;
+
+        </script>
+    </body>
+</html>

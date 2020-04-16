@@ -54,7 +54,7 @@ class ExamplePromiseAll extends Component {
     // this.callKeluarga().then(keluarga => {
     //   return this.setState({ keluarga: keluarga });
     // });
-    
+
     //promise all cuma ini harus menunggu semua resolve dulu,jadi seperti syncrhronous
     Promise.all([
       this.callAyah(),

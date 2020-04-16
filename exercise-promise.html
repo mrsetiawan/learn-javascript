@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Promise with vanila js</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <h1 onclick="changeMyName()">change myName using promise</h1>
+        <h1 onclick="getMyList()">changeMyName using promise all</h1>
+
+        <script>
+            //with promise
+            getFirstName = () => {
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        return resolve("muhamad");
+                    },1000)
+                })
+            }
+
+            getMiddleName = (res) => {
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        return resolve(`${res} rahmat`);
+                    },500)
+                })
+            }
+
+            getLastName = (res2) => {
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        return resolve(`${res2} setiawan`);
+                    },300)
+                })
+            }
+
+            //with promise
+            changeMyName = () => {
+                getFirstName()
+                .then((res) => {
+                    console.log(res);
+                    return getMiddleName(res);
+                })
+                .then((res2) => {
+                    console.log(res2);
+                    return getLastName(res2)
+                })
+                .then((res3) => {
+                    console.log(res3);
+                    const paragraph = document.createElement("p");
+                    paragraph.innerHTML = res3; 
+                    return document.body.appendChild(paragraph);
+                })
+            }
+
+
+            getFirstName2 = () => {
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        return resolve("muhamad");
+                    },1000)
+                })
+            }
+
+            getMiddleName2 = (res) => {
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        return resolve('rahmat');
+                    },500)
+                })
+            }
+
+            getLastName2 = (res2) => {
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        return resolve('setiawan');
+                    },300)
+                })
+            }
+
+            // with promise all
+            getMyList = () => {
+               Promise.all([getFirstName2(),getMiddleName2(),getLastName2()])
+               .then(([first,middle,last]) => {
+                    const para = `${first} ${middle} ${last}`;
+                    const head2 = document.createElement("h2")
+                    head2.innerHTML = para;
+
+                    return document.body.appendChild(head2);
+
+               })
+            }
+
+
+
+
+        </script>
+    </body>
+</html>
